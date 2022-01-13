@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mydb
+spec:
+  containers:
+  - name: mydbapp
+    image: mysql
+    env:
+      - name: MYSQL_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef: 
+            name: mysql-secret
+            key: root_password
+      - name: MYSQL_USER
+        valueFrom:
+          secretKeyRef: 
+            name: mysql-secret
+            key: username
+      - name: MYSQL_PASSWORD
+        valueFrom:
+          secretKeyRef: 
+            name: mysql-secret
+            key: password
+      - name: MYSQL_DATABASE
+        valueFrom:
+          secretKeyRef: 
+            name: mysql-secret
+            key: database

@@ -1,0 +1,30 @@
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    tier: frontend
+    environment: dev
+spec:
+  containers:
+  - name: mycon
+    image: httpd
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod2
+  labels:
+    tier: test
+spec:
+  containers:
+  - name: mycon
+    image: httpd 
+
+
+
+
+
+
