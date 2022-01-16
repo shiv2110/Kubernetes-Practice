@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydc
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - { key: tier, operator: In, values: [ ws ] }
+  template:
+    metadata:
+      labels:
+        tier: ws
+    spec:
+      containers:
+      - name: mydccontainer
+        image: shivanvitha21/myweb:v1
+
